@@ -1,6 +1,6 @@
 from itertools import groupby
 
-# First function challenge
+#1
 
 def unique_in_order(iterable):
     return [k for (k, _) in groupby(iterable)]
@@ -11,27 +11,12 @@ def unique_in_order(iterable):
     return [ ch for i, ch in enumerate(iterable) if i == 0 or ch != iterable[i - 1] ]
 
 
-#%%
-import random
+#2
 
-def sort_faster(array):
-    if len(array) < 2:
-        return array
+def high_and_low(numbers):
+
+    numbers = [int(x) for x in numbers.split()]
     
-    less_than, same, greater_than = [], [], []
+    return f'{max(numbers)} {min(numbers)}'
 
-    pivot = array[random.randint(0, len(array) - 1)]
 
-    for item in array:
-        if item < pivot:
-            less_than.append(item)
-        elif item == pivot:
-            same.append(item)
-        elif item > pivot:
-            greater_than.append(item)
-    
-    return sort_faster(less_than) + same + sort_faster(greater_than)
-
-array = [1, 2, -3, 4, 5, -10]
-
-sort_faster(array)
