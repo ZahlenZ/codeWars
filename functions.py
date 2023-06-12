@@ -1,3 +1,5 @@
+import re
+
 from itertools import groupby
 
 # 1 Takes as argument a string and returns a list of items without repeated elements and retaining order
@@ -18,7 +20,6 @@ def unique_in_order(iterable: str) -> list:
 
 
 def high_and_low(numbers: str) -> str:
-
     numbers = [int(x) for x in numbers.split()]
 
     return f"{max(numbers)} {min(numbers)}"
@@ -35,7 +36,6 @@ def square_digits(num: int) -> int:
 
 
 def decode_morse(morse_code: str) -> str:
-
     MORSE_CODE = dict()
     translate = lambda code: "".join(
         MORSE_CODE.get(morse) for morse in re.split(r" ", code)
